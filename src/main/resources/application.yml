@@ -9,7 +9,7 @@ server:
 
 spring:
   application:
-    name: myblog
+    name: blog
 
   config:
     import: 
@@ -35,5 +35,7 @@ spring:
       fail-on-empty-beans: false		
 # mybatis 설정
 mybatis:
-  mapper-locations: classpath:maper/*.xml
+  mapper-locations:
+    - classpath:mybatis-mapper/mysql/*.xml  # mysql 폴더 매핑
+    - classpath:mybatis-mapper/oracle/*.xml # oracle 폴더 매핑
   config-location: classpath:mybatis-config.xml
