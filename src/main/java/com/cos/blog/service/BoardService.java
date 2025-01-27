@@ -1,5 +1,7 @@
 package com.cos.blog.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,5 +19,9 @@ public class BoardService {
 	@Transactional
 	public void save(BoardDTO boardDTO) {
 		boardRepository.save(boardDTO);
+	}
+	
+	public List<BoardDTO> findAll() {
+		return boardRepository.findAll();
 	}
 }

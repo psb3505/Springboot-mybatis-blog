@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +20,6 @@
 		<!-- Links -->
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="/save">게시글 등록</a></li>
-			
+			<li class="nav-item"><a class="nav-link" href="/list">게시글 목록</a></li>
 		</ul>
 	</nav>

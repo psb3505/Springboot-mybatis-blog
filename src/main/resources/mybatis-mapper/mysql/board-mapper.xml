@@ -12,4 +12,15 @@
 				#{boardContents}
 				)
 	</insert>
+	
+	<select id="findAll" resultType="Board">
+		SELECT 
+			id,
+			boardTitle,
+			boardWriter,
+			boardHits,
+			date_format(createdAt, "%y-%m-%d")	createdAt
+		FROM board_table
+		ORDER BY id DESC
+	</select>
 </mapper>
