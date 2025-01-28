@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-config.dtd">
+    
+<!-- 
+	1. typeAlias는 SQL Mapper의 namespace로 사용할 수 없다.
+	2. namespace는 반드시 Mapper 인터페이스의 FQCN과 일치해야 한다
+	3. MyBatis에서 typeAlias는 SQL Mapper에서 DTO 객체를 좀 더 간단하게 사용할 수 있도록 도와주는 기능이다.
+	-->
 <configuration>
-    <typeAliases>
-	    <typeAlias type="com.cos.blog.dto.BoardDTO" alias="Board"/>
-	</typeAliases>
+    
 </configuration>

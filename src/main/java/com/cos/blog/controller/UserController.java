@@ -5,12 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class BoardController {
+public class UserController {
 	
-	@RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
-	public String home() {
-		return "index";
+	@RequestMapping(value = "/auth/joinForm", method = RequestMethod.GET)
+	public String joinForm() {
+		return "user/joinForm";
 	}
-	
-	
 }
