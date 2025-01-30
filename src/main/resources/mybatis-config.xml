@@ -8,5 +8,7 @@
 	3. MyBatis에서 typeAlias는 SQL Mapper에서 DTO 객체를 좀 더 간단하게 사용할 수 있도록 도와주는 기능이다.
 	-->
 <configuration>
-    
+    <typeAliases>
+    	<typeAlias type="com.cos.blog.vo.UserVO" alias="UserVO" />
+    </typeAliases>
 </configuration>

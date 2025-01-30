@@ -8,9 +8,10 @@ let index = {
 	save: function () {
 		let data = {
 			username: $("#username").val(),
-			password: $("password").val(),
-			email: $("email").val()
+			password: $("#password").val(),
+			email: $("#email").val()
 		};
+		console.log("btn-save 클릭");
 		
 		$.ajax({
 			type: "POST",
@@ -20,16 +21,17 @@ let index = {
 			dataType: "json"
 		})
 		.done(function (resp) {
-			if(resp.status === 500) {
-				alert("중복되는 아이디가 존재합니다.");
-			} else {
-				alert("회원가입이 완료되었습니다.");
-				location.href = "/";
-			}
+			alert(resp.message);
+			location.href = "/";
 		})
 		.fail(function (error) {
-			alert(JSON.stringify(error));
+			if(error.status === 400) {
+				let errorMessage = error.responseJSON.map(err => err.defaultMessage).join("\n");
+							alert(errorMessage);
+			}
 		});
 	}
 	
 }
+
+index.init();

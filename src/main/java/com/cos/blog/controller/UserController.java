@@ -11,4 +11,10 @@ public class UserController {
 	public String joinForm() {
 		return "user/joinForm";
 	}
+	
+	@RequestMapping(value = "/auth/loginForm", method = RequestMethod.GET)
+	public String loginForm() {
+		return "user/loginForm";
+	}
+	
 }
