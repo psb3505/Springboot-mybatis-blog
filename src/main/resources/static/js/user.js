@@ -5,7 +5,7 @@ let index = {
 		});	
 		$("#btn-update").on("click", () => {
 			this.update();
-		})
+		});
 	},
 	
 	save: function () {
@@ -56,7 +56,7 @@ let index = {
 			.fail(function (error) {
 				if(error.status === 400) {
 					let errorMessage = error.responseJSON.map(err => err.defaultMessage).join("\n");
-								alert(errorMessage);
+					alert(errorMessage);
 				}
 			});
 		}

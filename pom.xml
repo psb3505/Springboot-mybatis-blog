@@ -68,6 +68,11 @@
 		
 		<!--추가 라이브러리-->
 		
+		<dependency>
+		      <groupId>org.springframework.data</groupId>
+		      <artifactId>spring-data-commons</artifactId>
+		</dependency>
+		
 		<!--validation-->
 		<dependency>
 		  <groupId>org.springframework.boot</groupId>

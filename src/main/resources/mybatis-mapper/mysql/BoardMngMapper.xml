@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.cos.blog.mapper.BoardMapper">
+
+	<insert id="saveBoard" parameterType="map">
+		INSERT INTO board (title, content, createDate, count, user_id)
+		VALUES (#{boardVO.title}, #{boardVO.content}, NOW(), 0, #{userVO.user_id});
+	</insert>
+	
+	<select id="pagingList" parameterType="map" resultType="BoardVO">
+		SELECT * FROM board
+		ORDER BY board_id DESC
+		LIMIT #{start}, #{limit};
+	</select>
+	
+	<select id="boardCount" resultType="Integer">
+		SELECT COUNT(1) FROM board
+	</select>
+		
+</mapper>
