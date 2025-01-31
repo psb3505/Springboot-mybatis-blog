@@ -2,9 +2,13 @@ package com.cos.blog.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
+import com.cos.blog.config.auth.PrincipalDetailService;
 
 import jakarta.servlet.DispatcherType;
 import lombok.RequiredArgsConstructor;
@@ -13,9 +17,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SecurityConfig {
 	
+	private final PrincipalDetailService princDetailService;
+	
 	@Bean
 	public BCryptPasswordEncoder encodePWD() {
 		return new BCryptPasswordEncoder();
+	}
+	
+	public AuthenticationManager authenticationManager(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(princDetailService).passwordEncoder(encodePWD());
+		return auth.build();
 	}
 	
 	// Spring Security 6.1 이상 버전에서는 authorizeHttpRequests(), and(), formLogin() 등이 더 이상 권장되지 않고, 대신 Lambda DSL을 사용하는 방식으로 변경되었다.

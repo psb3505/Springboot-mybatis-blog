@@ -3,8 +3,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
 <mapper namespace="com.cos.blog.mapper.UserMapper">
+
 	<insert id="insertSingUp" parameterType="UserVO">
-		INSERT INTO user(username, password, email, createDate, role_id)
-		VALUES(#{username}, #{password}, #{email}, NOW(), #{role_id});	
+		INSERT INTO user(username, password, email, createDate, role)
+		VALUES(#{username}, #{password}, #{email}, NOW(), #{role});	
 	</insert>
+	
+	<select id="findByUsername" parameterType="String" resultType="UserVO">
+		SELECT user_id, username, password, email, oauth
+		FROM user
+		<where>
+			AND username = #{username};
+		</where>
+	</select>
+	
+	<update id="updateEditProfile" parameterType="UserVO">
+			UPDATE user
+			SET password = #{password}, email = #{email}
+			<where>
+				AND user_id = #{user_id}
+			</where>
+	</update>
+		
 </mapper>

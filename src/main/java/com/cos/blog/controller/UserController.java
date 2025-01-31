@@ -17,4 +17,9 @@ public class UserController {
 		return "user/loginForm";
 	}
 	
+	@RequestMapping(value = "/user/updateForm", method = RequestMethod.GET)
+	public String updateForm() {
+		return "user/updateForm";
+	}
+	
 }

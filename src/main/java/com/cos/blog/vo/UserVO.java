@@ -27,5 +27,5 @@ public class UserVO {
 	
 	private LocalDateTime createTime;
 	private String oauth;
-	private int role_id;
+	private String role;
 }
